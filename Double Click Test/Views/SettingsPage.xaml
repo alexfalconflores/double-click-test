@@ -5,82 +5,158 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:helper="using:Double_Click_Test.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Style="{StaticResource PageStyle}"
+    xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     xmlns:xaml="using:Windows.UI.Xaml"
     mc:Ignorable="d">
     <Page.Resources>
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="ElementTheme" />
+        <helper:ElementThemeToStringConverter x:Key="ElementThemeToStringConverter" />
+        <helper:ElementThemeToIconConverter x:Key="ElementThemeToIconConverter" />
     </Page.Resources>
-
-    <Grid Margin="{StaticResource MediumLeftRightMargin}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <TextBlock
-            Grid.Row="0"
-            x:Uid="Settings_Title"
-            Style="{StaticResource PageTitleStyle}" />
-
+    <ScrollViewer>
         <StackPanel
-            Grid.Row="1"
-            x:Name="ContentArea">
-            <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
-            <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <TextBlock x:Uid="Settings_Theme" />
-
-                <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                    <RadioButton
-                        x:Uid="Settings_Theme_Light"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Light</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton
-                        x:Uid="Settings_Theme_Dark"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Dark</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton
-                        x:Uid="Settings_Theme_Default"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Default</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
+            x:Name="ContentArea"
+            Margin="{StaticResource XXLargeLeftRightBottomMargin}"
+            Spacing="4">
+            <StackPanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </StackPanel.ChildrenTransitions>
+            <TextBlock
+                x:Uid="/SettingsPage/Settings_Page"
+                FontFamily="Segoe UI Variable Display"
+                Style="{StaticResource TitleTextBlockStyle}" />
+            <TextBlock
+                x:Uid="/SettingsPage/Settings_Personalization"
+                Margin="{StaticResource MediumTopMargin}"
+                FontFamily="Segoe UI Variable Display"
+                Style="{ThemeResource NavigationViewItemHeaderTextStyle}" />
+            <toolkit:SettingsExpander
+                x:Uid="/SettingsPage/Settings_Theme"
+                Margin="{StaticResource XSmallTopMargin}"
+                FontFamily="Segoe UI Variable Text"
+                HeaderIcon="{ui:FontIcon Glyph='&#xE790;'}">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <FontIcon FontSize="16" Glyph="{x:Bind ViewModel.ElementTheme, Converter={StaticResource ElementThemeToIconConverter}, Mode=OneWay}" />
+                    <TextBlock FontFamily="Segoe UI Variable Text" Text="{x:Bind ViewModel.ElementTheme, Converter={StaticResource ElementThemeToStringConverter}, Mode=OneWay}" />
                 </StackPanel>
-            </StackPanel>
-
-            <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-            <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
+                <toolkit:SettingsExpander.Items>
+                    <toolkit:SettingsCard ContentAlignment="Left">
+                        <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                            <RadioButton
+                                x:Uid="/SettingsPage/Settings_Theme_Light"
+                                Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                                FontFamily="Segoe UI Variable Text"
+                                GroupName="AppTheme"
+                                IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Light</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                            <RadioButton
+                                x:Uid="/SettingsPage/Settings_Theme_Dark"
+                                Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                                FontFamily="Segoe UI Variable Text"
+                                GroupName="AppTheme"
+                                IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Dark</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                            <RadioButton
+                                x:Uid="/SettingsPage/Settings_Theme_Default"
+                                Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                                FontFamily="Segoe UI Variable Text"
+                                GroupName="AppTheme"
+                                IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Default</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                        </StackPanel>
+                    </toolkit:SettingsCard>
+                </toolkit:SettingsExpander.Items>
+            </toolkit:SettingsExpander>
+            <TextBlock
+                x:Uid="/SettingsPage/Settings_About"
+                Margin="{StaticResource MediumTopMargin}"
+                FontFamily="Segoe UI Variable Text"
+                Style="{ThemeResource NavigationViewItemHeaderTextStyle}">
+                <TextBlock.Transitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition />
+                    </TransitionCollection>
+                </TextBlock.Transitions>
+            </TextBlock>
+            <toolkit:SettingsExpander
+                Margin="{StaticResource XSmallTopMargin}"
+                Description="Alex Falcon Flores"
+                Header="{x:Bind ViewModel.AppDisplayName, Mode=OneWay}">
+                <toolkit:SettingsExpander.HeaderIcon>
+                    <winui:ImageIcon Source="ms-appx:///Assets/AppLogo.svg" />
+                </toolkit:SettingsExpander.HeaderIcon>
+                <toolkit:SettingsExpander.Transitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition />
+                    </TransitionCollection>
+                </toolkit:SettingsExpander.Transitions>
                 <TextBlock
-                    x:Uid="Settings_AboutDescription"
-                    Margin="{StaticResource XSmallTopMargin}"
-                    Style="{ThemeResource BodyTextBlockStyle}" />
+                    FontSize="12"
+                    Style="{ThemeResource DetailBodyBaseMediumStyle}"
+                    Text="{x:Bind ViewModel.VersionDescription}" />
+                <toolkit:SettingsExpander.Items>
+                    <toolkit:SettingsCard ContentAlignment="Left">
+                        <StackPanel>
+                            <StackPanel
+                                Margin="0,0,0,8"
+                                Orientation="Horizontal"
+                                Spacing="8">
+                                <FontIcon
+                                    Margin="12,0,0,0"
+                                    FontSize="14"
+                                    Glyph="&#xE950;" />
+                                <TextBlock Text="{x:Bind ViewModel.AppArchitecture, Mode=OneWay}" />
+                            </StackPanel>
+                            <HyperlinkButton x:Uid="/SettingsPage/Feedback" NavigateUri="https://github.com/alexfalconflores/nokana" />
+                            <HyperlinkButton x:Uid="/SettingsPage/Rate_Review" Command="{x:Bind ViewModel.RateAndReviewCommand}" />
+                            <HyperlinkButton x:Uid="/SettingsPage/My_Apps" Command="{x:Bind ViewModel.MyAppsCommand}" />
+                        </StackPanel>
+                    </toolkit:SettingsCard>
+                </toolkit:SettingsExpander.Items>
+            </toolkit:SettingsExpander>
 
-                <HyperlinkButton x:Uid="Settings_PrivacyTermsLink" Margin="{StaticResource XSmallTopMargin}" />
+            <toolkit:SettingsExpander x:Uid="/SettingsPage/Library_Used" HeaderIcon="{ui:FontIcon Glyph=&#xEA86;}">
+                <toolkit:SettingsExpander.Transitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition />
+                    </TransitionCollection>
+                </toolkit:SettingsExpander.Transitions>
+                <toolkit:SettingsExpander.Items>
+                    <toolkit:SettingsCard ContentAlignment="Left">
+                        <StackPanel>
+                            <TextBlock
+                                x:Uid="/SettingsPage/Library_Description"
+                                Margin="0,0,0,10"
+                                TextWrapping="Wrap" />
+                            <HyperlinkButton Content="AlexFalconFlores.UWP.Toolkit.Controls" NavigateUri="https://github.com/alexfalconflores/uwp-toolkit-controls" />
+                            <HyperlinkButton Content="CommunityToolkit.Mvvm" NavigateUri="https://github.com/CommunityToolkit/dotnet" />
+                            <HyperlinkButton Content="CommunityToolkit.Uwp.Controls.Primitives" NavigateUri="https://github.com/CommunityToolkit/Windows" />
+                            <HyperlinkButton Content="CommunityToolkit.Uwp.Controls.SettingsControls" NavigateUri="https://github.com/CommunityToolkit/Windows" />
+                            <HyperlinkButton Content="CommunityToolkit.Uwp.Extensions" NavigateUri="https://github.com/CommunityToolkit/Windows" />
+                            <HyperlinkButton Content="CommunityToolkit.Uwp.Helpers" NavigateUri="https://github.com/CommunityToolkit/Windows" />
+                            <HyperlinkButton Content="Microsoft.Toolkit.Uwp" NavigateUri="https://github.com/CommunityToolkit/WindowsCommunityToolkit" />
+                            <HyperlinkButton Content="Microsoft.UI.Xaml" NavigateUri="https://github.com/microsoft/microsoft-ui-xaml" />
+                            <HyperlinkButton Content="Microsoft.Xaml.Behaviors.Uwp.Managed" NavigateUri="https://github.com/Microsoft/XamlBehaviors" />
+                            <HyperlinkButton Content="PolySharp" NavigateUri="https://github.com/Sergio0694/PolySharp/" />
+                            <!--<HyperlinkButton Content="Microsoft.AppCenter" NavigateUri="https://github.com/microsoft/appcenter" />-->
+                        </StackPanel>
+                    </toolkit:SettingsCard>
+                </toolkit:SettingsExpander.Items>
+            </toolkit:SettingsExpander>
 
-                <HyperlinkButton
-                    Margin="{StaticResource XSmallTopMargin}"
-                    x:Uid="FeedbackHub_Link"
-                    Command="{x:Bind ViewModel.LaunchFeedbackHubCommand}"
-                    Visibility="{x:Bind ViewModel.FeedbackLinkVisibility}" />
-            </StackPanel>
         </StackPanel>
-    </Grid>    
+    </ScrollViewer>
 </Page>
