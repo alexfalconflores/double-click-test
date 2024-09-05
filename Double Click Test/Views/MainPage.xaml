@@ -3,13 +3,34 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helper="using:Double_Click_Test.Helpers"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:CommunityToolkit.WinUI"
     xmlns:utControls="using:UWP.Toolkit.Controls"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style x:Key="ResetButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <!--  ContentPresenter solo muestra el contenido del botón sin estilos  -->
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
     <Grid
-        x:Name="ContentArea"
         Margin="{StaticResource MediumLeftRightBottomMargin}"
         ColumnSpacing="8"
         RowSpacing="16">
@@ -20,6 +41,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -49,12 +71,32 @@
         <Button
             x:Uid="/MainPage/ResetButton"
             Grid.Column="2"
-            HorizontalAlignment="Right" />
+            HorizontalAlignment="Right"
+            Command="{x:Bind ViewModel.ResetCommand}" />
 
-        <Rectangle
+        <Button
             Grid.Row="1"
             Grid.ColumnSpan="3"
-            Fill="Red" />
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="{x:Bind ViewModel.ClickFill, Mode=OneWay}"
+            Command="{x:Bind ViewModel.MouseClickCommand}"
+            CornerRadius="{StaticResource ControlCornerRadius}"
+            Style="{StaticResource ResetButtonStyle}">
+            <i:Interaction.Behaviors>
+                <ic:EventTriggerBehavior EventName="RightTapped">
+                    <ic:InvokeCommandAction Command="{x:Bind ViewModel.MouseClickCommand}" />
+                </ic:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+        </Button>
+
+        <TextBox
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            AcceptsReturn="True"
+            IsReadOnly="True"
+            Text="{x:Bind ViewModel.PrevDiff, Mode=OneWay}"
+            TextWrapping="Wrap" />
     </Grid>
 
 </Page>

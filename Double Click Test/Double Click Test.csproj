@@ -162,6 +162,7 @@
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Extensions\ImageIconExtension.cs" />
+    <Compile Include="Helpers\CornerRadiusToDoubleConverter.cs" />
     <Compile Include="Helpers\ElementThemeToIconConverter.cs" />
     <Compile Include="Helpers\ElementThemeToStringConverter.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
