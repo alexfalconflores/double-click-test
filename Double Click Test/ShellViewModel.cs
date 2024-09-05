@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Double_Click_Test.Services;
 using System.Collections.Generic;
+using UWP_Toolkit.Extensions;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
@@ -13,6 +14,9 @@ namespace Double_Click_Test;
 
 public partial class ShellViewModel : ObservableObject
 {
+    [ObservableProperty]
+    private string appTitleName = "AppDisplayName".GetLocalized();
+
     private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
     private IList<KeyboardAccelerator> _keyboardAccelerators;
 

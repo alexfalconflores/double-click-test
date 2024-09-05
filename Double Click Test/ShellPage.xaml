@@ -2,7 +2,10 @@
     x:Class="Double_Click_Test.ShellPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
     xmlns:local="using:Double_Click_Test"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:utControls="using:UWP.Toolkit.Controls"
@@ -11,10 +14,43 @@
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
+    <i:Interaction.Behaviors>
+        <ic:EventTriggerBehavior EventName="Loaded">
+            <ic:InvokeCommandAction Command="{x:Bind ViewModel.LoadedCommand}" />
+        </ic:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+
     <utControls:TitleBar
         x:Uid="AppTitle"
         AppIconSource="ms-appx:///Assets/AppLogo.svg"
-        AppName="Double Click Test">
+        AppName="Double Click Test"
+        BackButtonCommand="{x:Bind ViewModel.BackPageCommand}"
+        IsBackButtonEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
+        IsBackButtonVisible="{x:Bind ViewModel.IsBackButtonVisible, Mode=OneWay}"
+        Size="Tall">
+        <utControls:TitleBar.PaneCustomContent>
+            <Button
+                x:Uid="Settings_Button"
+                Grid.Column="2"
+                Padding="6"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{x:Bind ViewModel.SettingsPageCommand}">
+                <winui:AnimatedIcon
+                    x:Name="SettingAnimatedIcon"
+                    Width="16"
+                    Height="16">
+                    <winui:AnimatedIcon.Source>
+                        <animatedvisuals:AnimatedSettingsVisualSource />
+                    </winui:AnimatedIcon.Source>
+                    <winui:AnimatedIcon.FallbackIconSource>
+                        <winui:SymbolIconSource Symbol="Setting" />
+                    </winui:AnimatedIcon.FallbackIconSource>
+                </winui:AnimatedIcon>
+            </Button>
+        </utControls:TitleBar.PaneCustomContent>
         <utControls:TitleBar.Body>
             <Frame x:Name="ShellFrame" />
         </utControls:TitleBar.Body>
