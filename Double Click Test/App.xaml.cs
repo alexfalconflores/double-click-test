@@ -3,6 +3,7 @@
 using Double_Click_Test.Services;
 
 using Windows.ApplicationModel.Activation;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 
 namespace Double_Click_Test;
@@ -29,6 +30,7 @@ public sealed partial class App : Application
     {
         if (!args.PrelaunchActivated)
         {
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(500, 600));
             await ActivationService.ActivateAsync(args);
         }
     }
@@ -46,6 +48,8 @@ public sealed partial class App : Application
 
     private ActivationService CreateActivationService()
     {
-        return new ActivationService(this, typeof(Views.MainPage));
+        return new ActivationService(this, typeof(Views.MainPage), new Lazy<UIElement>(CreateShell));
     }
+
+    private UIElement CreateShell() => new ShellPage();
 }

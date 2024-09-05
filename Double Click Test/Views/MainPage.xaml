@@ -4,8 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Style="{StaticResource PageStyle}"
+    xmlns:utControls="using:UWP.Toolkit.Controls"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
+
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="48" />
@@ -13,16 +15,17 @@
         </Grid.RowDefinitions>
 
         <TextBlock
-            Grid.Row="0"
             x:Uid="Main_Title"
+            Grid.Row="0"
             Style="{StaticResource PageTitleStyle}" />
-        <Grid
-            Grid.Row="1" 
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+        <Grid Grid.Row="1">
+
             <!--
-                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content.
                 Place your content here.
             -->
+
         </Grid>
     </Grid>
+
 </Page>

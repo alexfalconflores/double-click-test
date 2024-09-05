@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Double_Click_Test.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Double_Click_Test"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utControls="using:UWP.Toolkit.Controls"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+
+    <utControls:TitleBar
+        x:Uid="AppTitle"
+        AppIconSource="ms-appx:///Assets/AppLogo.svg"
+        AppName="Double Click Test">
+        <utControls:TitleBar.Body>
+            <Frame x:Name="ShellFrame" />
+        </utControls:TitleBar.Body>
+    </utControls:TitleBar>
+</Page>
