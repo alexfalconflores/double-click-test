@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:Double_Click_Test.Extensions"
     xmlns:helper="using:Double_Click_Test.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
@@ -15,6 +16,7 @@
         <helper:ElementThemeToStringConverter x:Key="ElementThemeToStringConverter" />
         <helper:ElementThemeToIconConverter x:Key="ElementThemeToIconConverter" />
     </Page.Resources>
+
     <ScrollViewer>
         <StackPanel
             x:Name="ContentArea"
@@ -39,10 +41,10 @@
                 Margin="{StaticResource XSmallTopMargin}"
                 FontFamily="Segoe UI Variable Text"
                 HeaderIcon="{ui:FontIcon Glyph='&#xE790;'}">
-                <StackPanel Orientation="Horizontal" Spacing="10">
+                <!--<StackPanel Orientation="Horizontal" Spacing="10">
                     <FontIcon FontSize="16" Glyph="{x:Bind ViewModel.ElementTheme, Converter={StaticResource ElementThemeToIconConverter}, Mode=OneWay}" />
                     <TextBlock FontFamily="Segoe UI Variable Text" Text="{x:Bind ViewModel.ElementTheme, Converter={StaticResource ElementThemeToStringConverter}, Mode=OneWay}" />
-                </StackPanel>
+                </StackPanel>-->
                 <toolkit:SettingsExpander.Items>
                     <toolkit:SettingsCard ContentAlignment="Left">
                         <StackPanel Margin="{StaticResource XSmallTopMargin}">
@@ -80,6 +82,7 @@
                     </toolkit:SettingsCard>
                 </toolkit:SettingsExpander.Items>
             </toolkit:SettingsExpander>
+
             <TextBlock
                 x:Uid="/SettingsPage/Settings_About"
                 Margin="{StaticResource MediumTopMargin}"
@@ -94,19 +97,17 @@
             <toolkit:SettingsExpander
                 Margin="{StaticResource XSmallTopMargin}"
                 Description="Alex Falcon Flores"
-                Header="{x:Bind ViewModel.AppDisplayName, Mode=OneWay}">
-                <toolkit:SettingsExpander.HeaderIcon>
-                    <winui:ImageIcon Source="ms-appx:///Assets/AppLogo.svg" />
-                </toolkit:SettingsExpander.HeaderIcon>
+                Header="{x:Bind ViewModel.AppDisplayName, Mode=OneWay}"
+                HeaderIcon="{ext:ImageIcon Source=ms-appx:///Assets/AppLogo.svg}">
                 <toolkit:SettingsExpander.Transitions>
                     <TransitionCollection>
                         <RepositionThemeTransition />
                     </TransitionCollection>
                 </toolkit:SettingsExpander.Transitions>
-                <TextBlock
+                <!--<TextBlock
                     FontSize="12"
                     Style="{ThemeResource DetailBodyBaseMediumStyle}"
-                    Text="{x:Bind ViewModel.VersionDescription}" />
+                    Text="{x:Bind ViewModel.VersionDescription}" />-->
                 <toolkit:SettingsExpander.Items>
                     <toolkit:SettingsCard ContentAlignment="Left">
                         <StackPanel>
@@ -151,12 +152,12 @@
                             <HyperlinkButton Content="Microsoft.UI.Xaml" NavigateUri="https://github.com/microsoft/microsoft-ui-xaml" />
                             <HyperlinkButton Content="Microsoft.Xaml.Behaviors.Uwp.Managed" NavigateUri="https://github.com/Microsoft/XamlBehaviors" />
                             <HyperlinkButton Content="PolySharp" NavigateUri="https://github.com/Sergio0694/PolySharp/" />
-                            <!--<HyperlinkButton Content="Microsoft.AppCenter" NavigateUri="https://github.com/microsoft/appcenter" />-->
                         </StackPanel>
                     </toolkit:SettingsCard>
                 </toolkit:SettingsExpander.Items>
             </toolkit:SettingsExpander>
-
         </StackPanel>
     </ScrollViewer>
 </Page>
+
+<!--<HyperlinkButton Content="Microsoft.AppCenter" NavigateUri="https://github.com/microsoft/appcenter" />-->
