@@ -2,8 +2,12 @@
 
 namespace Double_Click_Test.ViewModels;
 
-public class MainViewModel : ObservableObject
+public partial class MainViewModel : ObservableObject
 {
+    [ObservableProperty]
+    private int clickCount = 0;
+    [ObservableProperty]
+    private int doubleClickCount = 0;
     public MainViewModel()
     {
     }

@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
+    <Compile Include="Extensions\ImageIconExtension.cs" />
     <Compile Include="Helpers\ElementThemeToIconConverter.cs" />
     <Compile Include="Helpers\ElementThemeToStringConverter.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
@@ -305,6 +306,7 @@
     <None Include=".editorconfig" />
     <None Include="Double Click Test_TemporaryKey.pfx" />
     <None Include="README.md" />
+    <PRIResource Include="Strings\en-us\MainPage.resw" />
     <PRIResource Include="Strings\en-us\SettingsPage.resw" />
   </ItemGroup>
   <ItemGroup>

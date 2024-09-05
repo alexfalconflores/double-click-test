@@ -8,24 +8,53 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
+    <Grid
+        x:Name="ContentArea"
+        Margin="{StaticResource MediumLeftRightBottomMargin}"
+        ColumnSpacing="8"
+        RowSpacing="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock
-            x:Uid="Main_Title"
-            Grid.Row="0"
-            Style="{StaticResource PageTitleStyle}" />
-        <Grid Grid.Row="1">
+        <StackPanel
+            VerticalAlignment="Center"
+            Orientation="Horizontal"
+            Spacing="8">
+            <TextBlock x:Uid="/MainPage/ClickCounter" Style="{StaticResource BodyTextStyle}" />
+            <TextBlock
+                x:Name="ClickCounter"
+                VerticalAlignment="Bottom"
+                Text="{x:Bind ViewModel.ClickCount, Mode=OneWay}" />
+        </StackPanel>
 
-            <!--
-                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content.
-                Place your content here.
-            -->
+        <StackPanel
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            Orientation="Horizontal"
+            Spacing="8">
+            <TextBlock x:Uid="/MainPage/DoubleClickCounter" Style="{StaticResource BodyTextStyle}" />
+            <TextBlock
+                x:Name="DoubleClickCounter"
+                VerticalAlignment="Bottom"
+                Text="{x:Bind ViewModel.DoubleClickCount, Mode=OneWay}" />
+        </StackPanel>
 
-        </Grid>
+        <Button
+            x:Uid="/MainPage/ResetButton"
+            Grid.Column="2"
+            HorizontalAlignment="Right" />
+
+        <Rectangle
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Fill="Red" />
     </Grid>
 
 </Page>
