@@ -34,10 +34,15 @@
         Margin="{StaticResource MediumLeftRightBottomMargin}"
         ColumnSpacing="8"
         RowSpacing="16">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition IsStaggeringEnabled="True" />
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -58,6 +63,7 @@
 
         <StackPanel
             Grid.Column="1"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Orientation="Horizontal"
             Spacing="8">
