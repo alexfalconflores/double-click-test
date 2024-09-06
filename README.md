@@ -7,7 +7,7 @@ Welcome to the official repo for **Double Click Test**.
 
 <br>
 
-<a disabled href="https://apps.microsoft.com/store/detail/">
+<a href="https://apps.microsoft.com/store/detail/9NMB3PHQH2B7">
     <img src="https://github.com/alexfalconflores/alexfalconflores/blob/main/img/microsoft-store.png?raw=true" height=80 alt="Get it from Microsoft"/>
 </a>
 
