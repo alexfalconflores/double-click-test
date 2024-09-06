@@ -121,7 +121,9 @@
                                     Glyph="&#xE950;" />
                                 <TextBlock Text="{x:Bind ViewModel.AppArchitecture, Mode=OneWay}" />
                             </StackPanel>
-                            <HyperlinkButton x:Uid="/SettingsPage/Feedback" NavigateUri="https://github.com/alexfalconflores/nokana" />
+                            <HyperlinkButton Content="X / Twitter" NavigateUri="https://x.com/falcon_stefano" />
+                            <HyperlinkButton Content="Linkend" NavigateUri="https://www.linkedin.com/in/alexfalconflores/" />
+                            <HyperlinkButton x:Uid="/SettingsPage/Feedback" NavigateUri="https://github.com/alexfalconflores/double-click-test/issues" />
                             <HyperlinkButton x:Uid="/SettingsPage/Rate_Review" Command="{x:Bind ViewModel.RateAndReviewCommand}" />
                             <HyperlinkButton x:Uid="/SettingsPage/My_Apps" Command="{x:Bind ViewModel.MyAppsCommand}" />
                         </StackPanel>
