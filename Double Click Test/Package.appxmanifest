@@ -10,7 +10,7 @@
   <Identity
     Name="12490AlexFalconFlores.DoubleClickTest"
     Publisher="CN=6D9D34E0-ABE8-4700-A4A6-96E0849DEDA8"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="44d5def7-9e71-4948-934a-eb335f13f88e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

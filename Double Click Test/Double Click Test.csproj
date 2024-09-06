@@ -315,7 +315,6 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <None Include="Double Click Test_TemporaryKey.pfx" />
-    <None Include="README.md" />
     <PRIResource Include="Strings\es\FirstRun.resw" />
     <PRIResource Include="Strings\en-us\FirstRun.resw" />
     <PRIResource Include="Strings\es\SettingsPage.resw" />
