@@ -117,35 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppDisplayName" xml:space="preserve">
-    <value>Double Click Test</value>
-    <comment>Application display name</comment>
+  <data name="Settings_Page.Text" xml:space="preserve">
+    <value>Configuración</value>
   </data>
-  <data name="AppDescription" xml:space="preserve">
-    <value>Double Click Test</value>
-    <comment>Application description</comment>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>Acerca de</value>
   </data>
-  <data name="WhatsNew_Body.Text" xml:space="preserve">
-    <value>Replace the content of this dialog with whatever content is appropriate to your app.
-You might want to consider lists of bug fixes and new features.
-Don't feel restricted to just text. You can also include images and animations if you wish too.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.
-Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.</value>
-    <comment>What's new prompt message body</comment>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Personalización</value>
   </data>
-  <data name="WhatsNewDialog.Title" xml:space="preserve">
-    <value>What's new in this version</value>
-    <comment>What's new prompt message title</comment>
+  <data name="Settings_Theme.Description" xml:space="preserve">
+    <value>Seleccione el tema de la aplicación que desea mostrar</value>
   </data>
-  <data name="WhatsNewDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Ok</value>
-    <comment>What's new prompt message primary button text</comment>
+  <data name="Settings_Theme.Header" xml:space="preserve">
+    <value>Tema de la aplicación</value>
   </data>
-  <data name="FeedbackHub_Link.Content" xml:space="preserve">
-    <value>Feedback</value>
-    <comment>Displayed as the link to launching the Feedback Hub.</comment>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>Utilizar la configuración del sistema</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="Feedback.Content" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="Library_Description.Text" xml:space="preserve">
+    <value>En esta aplicación se han utilizado las siguientes bibliotecas:</value>
+  </data>
+  <data name="Library_Used.Header" xml:space="preserve">
+    <value>Librerias</value>
+  </data>
+  <data name="My_Apps.Content" xml:space="preserve">
+    <value>Mis aplicaciones</value>
+  </data>
+  <data name="Rate_Review.Content" xml:space="preserve">
+    <value>Valora y reseña</value>
   </data>
 </root>
