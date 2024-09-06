@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap mp genTemplate">
 
   <Identity
-    Name="f01cc721-5d99-475e-9a29-f1cfc555500c"
-    Publisher="CN=yo-al"
+    Name="12490AlexFalconFlores.DoubleClickTest"
+    Publisher="CN=6D9D34E0-ABE8-4700-A4A6-96E0849DEDA8"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="f01cc721-5d99-475e-9a29-f1cfc555500c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="44d5def7-9e71-4948-934a-eb335f13f88e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Double_Click_Test</DisplayName>
-    <PublisherDisplayName>yo-al</PublisherDisplayName>
+    <DisplayName>Double Click Test</DisplayName>
+    <PublisherDisplayName>Alex Falcon Flores</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
