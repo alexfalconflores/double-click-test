@@ -32,7 +32,7 @@ public partial class SettingsViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task RateAndReview() => _ = await Launcher.LaunchUriAsync(new("ms-windows-store://review/?ProductId="));
+    private async Task RateAndReview() => _ = await Launcher.LaunchUriAsync(new("ms-windows-store://review/?ProductId=9NMB3PHQH2B7"));
 
     [RelayCommand]
     private async Task MyApps() => _ = await Launcher.LaunchUriAsync(new("ms-windows-store://publisher/?name=Alex Falcon Flores"));
